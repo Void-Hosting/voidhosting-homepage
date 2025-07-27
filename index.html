@@ -3,187 +3,907 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Void Hosting | Home</title>
-    <meta name="ezoic-site-verification" content="ZWNlqkPnoXSDsPt3KVMiCfImiysCUx" />
-    
-    <!-- Google AdSense (Safe) -->
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3135182901441954"
-     crossorigin="anonymous"></script>
-
-    <!-- Fonts & CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
-
+    <title>Void Hosting - Freemium Hosting</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <style>
-        /* (Same CSS from your original file, no changes needed) */
-        body, html {
-            font-family: 'Roboto', sans-serif;
-            background-color: #121212;
-            color: #fff;
+        * {
             margin: 0;
             padding: 0;
-            min-height: 100%;
-            display: flex;
-            flex-direction: column;
+            box-sizing: border-box;
         }
-        #navbar {
-            background-color: #222;
-            border-bottom: 2px solid #9C27B0;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-            z-index: 1000;
+
+        :root {
+            --primary: #ff0080;
+            --secondary: #00ffff;
+            --accent: #ff6b35;
+            --gold: #ffd700;
+            --purple: #8a2be2;
+            --dark: #0a0a0a;
+            --darker: #000000;
+            --card-dark: #111111;
+            --card-darker: #0d0d0d;
+            --text-light: #ffffff;
+            --text-gray: #b0b0b0;
+            --gradient-primary: linear-gradient(135deg, #ff0080, #ff6b35, #ffd700);
+            --gradient-secondary: linear-gradient(135deg, #00ffff, #8a2be2, #ff0080);
+            --gradient-bg: linear-gradient(135deg, #0a0a0a, #1a1a2e, #16213e);
+            --neon-glow: 0 0 10px #ff0080;
+            --cyan-glow: 0 0 10px #00ffff;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-light);
+            background: var(--darker);
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Optimized Animated Background */
+        .bg-animation {
             position: fixed;
-            width: 100%;
             top: 0;
             left: 0;
-        }
-        .navbar-brand, .nav-link { color: #fff; font-weight: 500; }
-        .nav-link:hover { color: #9C27B0; }
-        body { padding-top: 70px; flex-grow: 1; }
-        #main {
-            text-align: center;
-            padding: 100px 20px;
-            background: linear-gradient(135deg, #121212 0%, #2e2e2e 100%);
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-            border-radius: 20px;
-            margin: 20px;
-        }
-        h1 { font-size: 3.5rem; color: #9C27B0; }
-        h2 { color: #bbb; font-size: 1.8rem; margin-bottom: 30px; }
-        .btn-primary { background-color: #9C27B0; border-color: #9C27B0; }
-        .btn-primary:hover { background-color: #7b1fa2; border-color: #7b1fa2; }
-        .btn-outline-primary { color: #9C27B0; border-color: #9C27B0; }
-        .btn-outline-primary:hover { color: #fff; background-color: #9C27B0; }
-        .carousel-item img {
-            height: 50vh;
-            object-fit: cover;
-            border-radius: 15px;
-        }
-        .pricing-table {
-            margin-top: 50px;
-            text-align: center;
-        }
-        table {
             width: 100%;
-            border-collapse: collapse;
-            background-color: #2c2c2c;
+            height: 100%;
+            z-index: -1;
+            background: var(--dark);
+            overflow: hidden;
+        }
+
+        .bg-animation::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(255, 0, 128, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(0, 255, 255, 0.05) 0%, transparent 50%);
+            animation: bgPulse 15s ease-in-out infinite alternate;
+            will-change: transform;
+        }
+
+        @keyframes bgPulse {
+            0%, 100% { transform: scale(1); opacity: 0.8; }
+            50% { transform: scale(1.02); opacity: 1; }
+        }
+
+        /* Simplified Matrix Rain for Mobile */
+        .matrix-rain {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+            opacity: 0.05;
+            display: none; /* Disabled by default for mobile */
+        }
+
+        /* Header - Optimized for Mobile */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 1000;
+            transition: all 0.3s ease;
+            border-bottom: 1px solid rgba(255, 0, 128, 0.3);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            padding: 0.5rem 0;
+        }
+
+        .header-scrolled {
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.8);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.5rem 0;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 900;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: logoGlow 3s ease-in-out infinite alternate;
+            cursor: pointer;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-width: 180px;
+        }
+
+        @keyframes logoGlow {
+            from { text-shadow: 0 0 5px rgba(255, 0, 128, 0.5); }
+            to { text-shadow: 0 0 15px rgba(255, 0, 128, 0.8); }
+        }
+
+        /* Mobile Menu */
+        .mobile-menu-btn {
+            display: none;
+            background: transparent;
+            border: none;
             color: white;
-            border-radius: 10px;
-            box-shadow: 0 0 20px rgba(156, 39, 176, 0.7);
+            font-size: 1.5rem;
+            cursor: pointer;
+            z-index: 1001;
         }
-        th, td {
-            padding: 15px;
-            border: 1px solid #9C27B0;
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
         }
-        th { background-color: #222; }
-        .tick { color: #9C27B0; font-weight: bold; }
-        .cross { color: red; font-weight: bold; }
-        .footer {
-            background-color: #222;
-            padding: 30px 0;
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-light);
+            font-weight: 600;
+            transition: all 0.3s ease;
+            position: relative;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.9rem;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gradient-primary);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .cta-nav {
+            background: var(--gradient-primary);
+            color: var(--text-light);
+            padding: 0.7rem 1.2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            font-size: 0.8rem;
+            white-space: nowrap;
+        }
+
+        .cta-nav:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 0, 128, 0.4);
+        }
+
+        /* Hero Section - Optimized */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: 80px;
+            padding-bottom: 40px;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 10;
             text-align: center;
-            color: #aaa;
-            margin-top: auto;
         }
-        .footer p { margin: 0; font-size: 0.9rem; }
-        .footer a { color: #9C27B0; text-decoration: none; }
-        .footer a:hover { text-decoration: underline; }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            line-height: 1.2;
+        }
+
+        .hero-title-static {
+            background: var(--gradient-secondary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero-title-dynamic {
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            min-height: 1.2em;
+            display: block;
+            position: relative;
+        }
+
+        .typing-cursor {
+            display: inline-block;
+            width: 2px;
+            height: 1em;
+            background: var(--primary);
+            margin-left: 3px;
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            color: var(--text-gray);
+            max-width: 100%;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 0 1rem;
+        }
+
+        .btn {
+            padding: 0.9rem 1.8rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.7rem;
+            font-size: 0.9rem;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: var(--gradient-primary);
+            color: var(--text-light);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(255, 0, 128, 0.4);
+        }
+
+        /* Features Section - Optimized */
+        .features {
+            padding: 4rem 0;
+            position: relative;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 900;
+            text-transform: uppercase;
+        }
+
+        .section-title p {
+            font-size: 1rem;
+            color: var(--text-gray);
+            max-width: 100%;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .feature-card {
+            background: linear-gradient(145deg, var(--card-dark), var(--card-darker));
+            padding: 1.5rem;
+            border-radius: 15px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 0, 128, 0.2);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(255, 0, 128, 0.2);
+            border-color: var(--primary);
+        }
+
+        .feature-icon {
+            width: 70px;
+            height: 70px;
+            margin: 0 auto 1.5rem;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            color: white;
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover .feature-icon {
+            transform: scale(1.1);
+        }
+
+        .feature-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.8rem;
+            color: var(--text-light);
+            text-transform: uppercase;
+        }
+
+        .feature-card p {
+            color: var(--text-gray);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* Stats Section - Optimized */
+        .stats {
+            padding: 3rem 0;
+            background: linear-gradient(145deg, var(--card-darker), var(--card-dark));
+            position: relative;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1.5rem;
+            text-align: center;
+        }
+
+        .stat-item {
+            padding: 1.5rem;
+            border-radius: 15px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 0, 128, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .stat-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(255, 0, 128, 0.2);
+        }
+
+        .stat-item h3 {
+            font-size: 2.2rem;
+            margin-bottom: 0.5rem;
+            background: var(--gradient-secondary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 900;
+        }
+
+        .stat-item p {
+            font-size: 0.9rem;
+            color: var(--text-gray);
+            text-transform: uppercase;
+        }
+
+        /* Discord CTA Section */
+        .discord-cta {
+            padding: 3rem 0;
+            background: linear-gradient(135deg, #5865F2, #8a2be2);
+            text-align: center;
+        }
+
+        .discord-cta h2 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: white;
+        }
+
+        .discord-cta p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            color: rgba(255, 255, 255, 0.9);
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 0 1rem;
+        }
+
+        .btn-discord {
+            background: white;
+            color: #5865F2;
+            font-weight: 700;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            transition: all 0.3s ease;
+        }
+
+        .btn-discord:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Footer - Optimized */
+        footer {
+            background: var(--darker);
+            padding: 3rem 0 1.5rem;
+            text-align: center;
+            border-top: 1px solid rgba(255, 0, 128, 0.3);
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+            text-align: left;
+        }
+
+        .footer-section h4 {
+            margin-bottom: 1rem;
+            color: var(--primary);
+            font-size: 1.1rem;
+            text-transform: uppercase;
+        }
+
+        .footer-section a {
+            color: var(--text-gray);
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.6rem;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        .footer-section a:hover {
+            color: var(--primary);
+            transform: translateX(5px);
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .social-links a {
+            width: 45px;
+            height: 45px;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            transform: translateY(-3px) scale(1.1);
+        }
+
+        /* Animations - Optimized */
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.6s ease;
+        }
+
+        .animate-on-scroll.animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Hero Buttons Spacing */
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 80%;
+                max-width: 300px;
+                height: 100vh;
+                background: rgba(0, 0, 0, 0.95);
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 2rem;
+                transition: right 0.3s ease;
+                z-index: 1000;
+                backdrop-filter: blur(10px);
+            }
+
+            .nav-links.active {
+                right: 0;
+            }
+
+            .cta-nav {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        @media (min-width: 769px) {
+            .matrix-rain {
+                display: block;
+            }
+        }
+
+        /* Performance Optimizations */
+        .will-change {
+            will-change: transform, opacity;
+        }
+
+        /* Reduced motion preference */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation: none !important;
+                transition: none !important;
+            }
+        }
     </style>
-    
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 <body>
+    <!-- Animated Background -->
+    <div class="bg-animation"></div>
+    <canvas class="matrix-rain"></canvas>
 
-<nav id="navbar" class="navbar navbar-expand-lg navbar-dark fixed-top">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="#">Void Hosting</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-                <li class="nav-item"><a class="nav-link" href="#main">Home</a></li>
-                <li class="nav-item"><a class="nav-link" href="#pricing">Pricing</a></li>
-                <li class="nav-item"><a class="nav-link" href="#features">Features</a></li>
-                <li class="nav-item"><a class="nav-link" href="#aboutus">About Us</a></li>
-                <li class="nav-item"><a class="nav-link disabled">Sign Up (coming soon)</a></li>
+    <!-- Header -->
+    <header id="header">
+        <nav class="container">
+            <div class="logo">
+                <i class="fas fa-server"></i> VOID HOSTING
+            </div>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="/index.html">HOME</a></li>
+<li><a href="/vps.html">PREMIUM VPS</a></li>
+                <li><a href="#features">FEATURES</a></li>
+                <li><a href="#discord">DISCORD</a></li>
+                <li>
+                    <a href="https://dash.voidhosting.vip" class="cta-nav" target="_blank">
+                        <i class="fas fa-rocket"></i> DASHBOARD
+                    </a>
+                </li>
             </ul>
-        </div>
-    </div>
-</nav>
+            <a href="https://dash.voidhosting.vip" class="cta-nav desktop-cta" target="_blank">
+                <i class="fas fa-rocket"></i> DASHBOARD
+            </a>
 
-<div class="container">
-    <section id="main" class="text-center">
-        <h1>Ever wanted to host something small?</h1>
-        <h2>But can't seem to find the right place?</h2>
-        <p>Void Hosting is a small hosting service to host your small projects! With a credits system you can either get a free server or spend your credits!</p>
-        <a href="https://dash.voidhosting.vip" class="btn btn-primary">Sign Up</a>
-        <a href="#features" class="btn btn-outline-primary">Features</a>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <h1>
+                    <span class="hero-title-static">FREEMIUM HOSTING</span>
+                    <span class="hero-title-dynamic" id="dynamicText">POWERFUL<span class="typing-cursor"></span></span>
+                </h1>
+                <p>High-performance freemium hosting for Discord bots and web applications. Free tier available with premium upgrades.</p>
+                <div class="hero-buttons">
+                    <a href="https://dash.voidhosting.vip" class="btn btn-primary" target="_blank">
+                        <i class="fas fa-bolt"></i> GET STARTED
+                    </a>
+                    <a href="https://dsc.gg/voidhosting" class="btn" style="background: #5865F2; color: white;">
+                        <i class="fab fa-discord"></i> JOIN DISCORD
+                    </a>
+<a href="/vps.html" class="btn btn-primary" target="_blank">
+                        <i class="fas fa-bolt"></i> BUY VPS
+                    </a>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <h4 id="features">Features</h4>
-    <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-inner">
-            <div class="carousel-item active">
-                <img src="https://images.pexels.com/photos/11035358/pexels-photo-11035358.jpeg" class="d-block w-100" alt="Linux Server">
-                <div class="carousel-caption d-none d-md-block">
-                    <h5>We use Linux</h5>
-                    <p>Fast and lightweight OS used in most servers!</p>
-                </div>
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="container">
+            <div class="section-title animate-on-scroll">
+                <h2>APP HOSTING FEATURES</h2>
+                <p>Everything you need to run your Discord Apps and web applications at scale</p>
             </div>
-            <div class="carousel-item">
-                <img src="https://images.pexels.com/photos/18104/pexels-photo.jpg" class="d-block w-100" alt="Pterodactyl Panel">
-                <div class="carousel-caption d-none d-md-block">
-                    <h5>Pterodactyl Management Panel</h5>
-                    <p>Easy server management with built-in SFTP & terminal.</p>
+            <div class="features-grid">
+                <div class="feature-card animate-on-scroll">
+                    <div class="feature-icon">
+                        <i class="fab fa-discord"></i>
+                    </div>
+                    <h3>DISCORD OPTIMIZED</h3>
+                    <p>Specialized servers configured for optimal Discord bot performance with low latency and high message throughput.</p>
                 </div>
-            </div>
-            <div class="carousel-item">
-                <img src="https://images.pexels.com/photos/1006060/pexels-photo-1006060.jpeg?auto=compress&cs=tinysrgb&w=800" class="d-block w-100" alt="Pterodactyl Panel">
-                <div class="carousel-caption d-none d-md-block">
-                    <h5>Credits System</h5>
-                    <p>Easy to use credits system for paid users. Pay daily with your credits in our dashboard.</p>
+                <div class="feature-card animate-on-scroll">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>DDoS PROTECTION</h3>
+                    <p>Enterprise-grade protection against attacks to keep your bots online even during raids or attacks.</p>
+                </div>
+                <div class="feature-card animate-on-scroll">
+                    <div class="feature-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3>LIGHTNING FAST</h3>
+                    <p>NVMe SSD storage and optimized networks ensure your bots respond instantly to commands.</p>
+                </div>
+                <div class="feature-card animate-on-scroll">
+                    <div class="feature-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3>MULTI-LANGUAGE</h3>
+                    <p>Support for Node.js, Python, Java, and more. Run any App framework with ease.</p>
+                </div>
+                <div class="feature-card animate-on-scroll">
+                    <div class="feature-icon">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <h3>FREE DATABASE</h3>
+                    <p>Included MariaDB database for your bot's data storage needs.</p>
+                </div>
+                <div class="feature-card animate-on-scroll">
+                    <div class="feature-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h3>FAST SUPPORT</h3>
+                    <p>Expert support team available around the clock to help with your bot hosting needs.</p>
                 </div>
             </div>
         </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon"></span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-            <span class="carousel-control-next-icon"></span>
-        </button>
-    </div>
+    </section>
 
-    <h4 id="pricing">Pricing</h4>
-    <div class="pricing-table">
-        <table class="table table-dark table-bordered text-center">
-            <thead>
-                <tr>
-                    <th>Features</th>
-                    <th>Tiny Plan</th>
-                    <th>Small Plan</th>
-                    <th>Medium-Small Plan</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr><td>Price per day</td><td>0 Credits</td><td>5 Credits</td><td>Soon!</td></tr>
-                <tr><td>CPU Usage</td><td>50% Shared</td><td>100% Shared</td><td>150% Shared</td></tr>
-                <tr><td>Disk Space</td><td>512MB</td><td>1GB</td><td>2GB</td></tr>
-                <tr><td>RAM</td><td>256MB</td><td>512MB</td><td>1GB</td></tr>
-                <tr><td>AIO, NodeJs, Nginx, and more</td><td>✔</td><td>✔</td><td>✔</td></tr>
-                <tr><td>No Killer</td><td>✔</td><td>✔</td><td>✔</td></tr>
-                <tr><td>Special Role</td><td>❌</td><td>✔</td><td>✔</td></tr>
-                <tr><td>Support</td><td>✔</td><td>✔</td><td>✔</td></tr>
-            </tbody>
-        </table>
-    </div>
-</div>
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="container">
+            <div class="stats-grid animate-on-scroll">
+                <div class="stat-item">
+                    <h3>80+</h3>
+                    <p>USERS</p>
+                </div>
+                <div class="stat-item">
+                    <h3>96.2%</h3>
+                    <p>UPTIME</p>
+                </div>
+                <div class="stat-item">
+                    <h3>50ms</h3>
+                    <p>AVG PING</p>
+                </div>
+                <div class="stat-item">
+                    <h3>Fast</h3>
+                    <p>SUPPORT</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<footer class="footer">
-    <div class="container text-center">
-        <p>&copy; 2025 Void Hosting. All Rights Reserved.</p>
-        <p>Contact us: <a href="mailto:nope@voidhosting.vip">nope@voidhosting.vip</a></p>
-    </div>
-</footer>
+    <section class="discord-cta" id="discord">
+        <div class="container">
+            <h2>JOIN OUR DISCORD COMMUNITY</h2>
+            <p>Get support, share your projects, and connect with other bot developers in our growing Discord community.</p>
+            <a href="https://dsc.gg/voidhosting" class="btn btn-discord" target="_blank">
+                <i class="fab fa-discord"></i> JOIN OUR DISCORD
+            </a>
+        </div>
+    </section>
 
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>HOSTING</h4>
+                    <a href="https://dash.voidhosting.vip" target="_blank">Visit Dashboard</a>
+                    <a href="#">Home</a>
+                    <a href="https://dash.voidhosting.vip">Dashboard</a>
+                    <a href="/vps.html">Premium VPS Servers</a>
+                </div>
+            </div>
+            <div class="social-links">
+                <a href="https://discord.gg/voidhosting" target="_blank"><i class="fab fa-discord"></i></a>
+                <a href="https://github.com/voidhosting" target="_blank"><i class="fab fa-github"></i></a>
+            </div>
+            <p>&copy; 2025 VOID HOSTING. ALL RIGHTS RESERVED.</p>
+        </div>
+    </footer>
+
+    <script>
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navLinks = document.getElementById('navLinks');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            mobileMenuBtn.innerHTML = navLinks.classList.contains('active') ? 
+                '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+        });
+
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+            });
+        });
+
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('header-scrolled');
+            } else {
+                header.classList.remove('header-scrolled');
+            }
+        });
+
+        const animateElements = document.querySelectorAll('.animate-on-scroll');
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate');
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+
+        animateElements.forEach(el => observer.observe(el));
+
+        const dynamicText = document.getElementById('dynamicText');
+        const words = ['POWERFUL', 'RELIABLE', 'FAST', 'SECURE', 'SCALABLE'];
+        let wordIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        let typingSpeed = 100;
+
+        function typeWriter() {
+            const currentWord = words[wordIndex];
+            
+            if (isDeleting) {
+                dynamicText.innerHTML = currentWord.substring(0, charIndex - 1) + '<span class="typing-cursor"></span>';
+                charIndex--;
+                typingSpeed = 50;
+                
+                if (charIndex === 0) {
+                    isDeleting = false;
+                    wordIndex = (wordIndex + 1) % words.length;
+                    setTimeout(typeWriter, 500);
+                    return;
+                }
+            } else {
+                dynamicText.innerHTML = currentWord.substring(0, charIndex + 1) + '<span class="typing-cursor"></span>';
+                charIndex++;
+                typingSpeed = charIndex === currentWord.length ? 2000 : 100;
+                
+                if (charIndex === currentWord.length) {
+                    isDeleting = true;
+                    setTimeout(typeWriter, typingSpeed);
+                    return;
+                }
+            }
+            
+            setTimeout(typeWriter, typingSpeed);
+        }
+
+        setTimeout(typeWriter, 1000);
+
+        if (window.innerWidth > 768) {
+            const canvas = document.querySelector('.matrix-rain');
+            const ctx = canvas.getContext('2d');
+            
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            
+            const matrix = "01ヴォイドホスティング";
+            const fontSize = 14;
+            const columns = Math.floor(canvas.width / fontSize);
+            const drops = Array(columns).fill(1);
+            
+            function drawMatrix() {
+                ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+                
+                ctx.fillStyle = '#ff0080';
+                ctx.font = `${fontSize}px monospace`;
+                
+                for (let i = 0; i < drops.length; i++) {
+                    const text = matrix[Math.floor(Math.random() * matrix.length)];
+                    ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+                    
+                    if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+                        drops[i] = 0;
+                    }
+                    drops[i]++;
+                }
+            }
+            
+            let lastTime = 0;
+            const matrixInterval = 100;
+            
+            function animateMatrix(timestamp) {
+                if (timestamp - lastTime > matrixInterval) {
+                    drawMatrix();
+                    lastTime = timestamp;
+                }
+                requestAnimationFrame(animateMatrix);
+            }
+            
+            animateMatrix();
+        }
+
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 768 && document.querySelector('.matrix-rain').style.display === 'none') {
+                document.querySelector('.matrix-rain').style.display = 'block';
+            } else if (window.innerWidth <= 768) {
+                document.querySelector('.matrix-rain').style.display = 'none';
+            }
+        });
+    </script>
 </body>
 </html>
