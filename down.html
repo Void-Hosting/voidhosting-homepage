@@ -1,187 +1,84 @@
 <!doctype html>
+
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Void Hosting — Down for Maintenance</title>
-
-  <!-- Fonts & Font Awesome -->
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Void Hosting - We'll be back soon</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
-
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
     :root{
-      --bg1:#0f1724;
-      --bg2:#0b1020;
-      --accent1:#7c3aed;
-      --accent2:#06b6d4;
-      --muted:#9aa4b2;
+      --bg:#141414;
+      --card:#1f1f1f;
+      --muted:#bfc7cf;
+      --accent:#ff8a3d;
+      --radius:14px;
+      --container-w:760px; /* medium width */
     }
     *{box-sizing:border-box}
-    html,body{height:100%;margin:0;padding:0}
+    html,body{height:100%}
     body{
-      font-family:'Poppins',system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;
-      background:radial-gradient(1200px 600px at 10% 10%, rgba(124,58,237,0.08), transparent),
-                 radial-gradient(900px 400px at 90% 90%, rgba(6,182,212,0.06), transparent),
-                 linear-gradient(180deg,var(--bg1),var(--bg2));
-      color:#e6eef8;
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      padding:20px;
-    }
+      margin:0; font-family:Inter,system-ui,Segoe UI,Roboto,"Helvetica Neue",Arial;
+      background:linear-gradient(180deg,#0f0f0f 0%, #141414 100%);
+      color:#e6e6e6; -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
+      display:grid; place-items:center; padding:40px;
+    }.wrap{
+  width:100%; max-width:var(--container-w); display:flex; gap:36px; align-items:center;
+}
 
-    .card{
-      width:100%;
-      max-width:920px;
-      background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-      border:1px solid rgba(255,255,255,0.04);
-      border-radius:20px;
-      padding:32px;
-      box-shadow: 0 8px 30px rgba(2,6,23,0.6);
-      display:grid;
-      grid-template-columns:1fr 400px;
-      gap:40px;
-      align-items:center;
-    }
+.card{
+  width:100%; background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  border-radius:18px; padding:34px 40px; display:flex; gap:32px; align-items:center;
+  box-shadow: 0 6px 30px rgba(0,0,0,0.6), inset 0 1px 0 rgba(255,255,255,0.02);
+}
 
-    .brand{
-      display:flex;
-      gap:16px;
-      align-items:center;
-    }
-    .logo{
-      width:56px;height:56px;border-radius:14px;overflow:hidden;
-      background:#fff;
-      display:inline-flex;align-items:center;justify-content:center;
-      box-shadow:0 6px 22px rgba(7,12,28,0.6);
-    }
-    .logo img{width:100%;height:100%;object-fit:contain}
+.cone{
+  width:180px; height:180px; min-width:180px; display:flex; align-items:center; justify-content:center;
+}
+.cone img{width:100%; height:auto;}
 
-    h1{font-size:28px;margin:0;color:#ffffff}
-    p.lead{margin-top:8px;color:var(--muted);font-weight:500}
+.content{flex:1; padding-right:8px;}
+h1{margin:0; font-size:44px; line-height:1; color:var(--accent); font-weight:800; letter-spacing:-0.02em;}
+p{margin:14px 0 22px; color:var(--muted); font-size:18px}
 
-    .center-panel{text-align:center;padding:24px;display:flex;flex-direction:column;gap:18px}
+.actions{display:flex; gap:14px}
+.btn{
+  display:inline-flex; gap:10px; align-items:center; padding:14px 18px; border-radius:12px; background:var(--card);
+  border:1px solid rgba(255,255,255,0.03); color:#e9eef2; text-decoration:none; font-weight:600; font-size:15px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+}
+.btn i{font-size:18px}
 
-    .icon-wrap{
-      font-size:96px;
-      color:var(--accent1);
-      text-shadow:0 0 20px rgba(124,58,237,0.4);
-      margin-bottom:12px;
-    }
+@media (max-width:780px){
+  :root{--container-w:92vw}
+  .wrap{flex-direction:column; align-items:center}
+  .card{flex-direction:column; text-align:center}
+  .cone{margin-bottom:6px}
+  h1{font-size:34px}
+}
 
-    .status-title{font-size:20px;font-weight:700;margin:0}
-    .status-desc{color:var(--muted);margin:0;font-size:15px}
-
-    .actions{display:flex;flex-wrap:wrap;gap:12px;justify-content:center}
-    .btn{
-      display:inline-flex;align-items:center;gap:10px;
-      padding:12px 18px;border-radius:12px;font-weight:600;
-      text-decoration:none;cursor:pointer;font-size:14px;
-    }
-    .btn-primary{
-      background:linear-gradient(90deg,var(--accent1),var(--accent2));
-      color:white;box-shadow:0 8px 20px rgba(6,20,40,0.45)
-    }
-    .btn-ghost{
-      background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--muted)
-    }
-
-    .right-col{display:flex;flex-direction:column;gap:18px}
-    .card-info{background:rgba(255,255,255,0.01);border-radius:12px;padding:16px;border:1px solid rgba(255,255,255,0.02)}
-    .info-title{font-size:13px;color:var(--muted);margin:0 0 8px 0}
-    .progress{height:10px;background:rgba(255,255,255,0.02);border-radius:999px;overflow:hidden}
-    .bar{height:100%;width:38%;background:linear-gradient(90deg,var(--accent1),var(--accent2));transition:width 600ms ease}
-    footer.small{font-size:12px;color:var(--muted);margin-top:8px;text-align:center}
-
-    /* Responsive */
-    @media(max-width:880px){
-      body{align-items:flex-start;padding:16px}
-      .card{grid-template-columns:1fr;max-width:100%}
-      .right-col{order:2}
-      .center-panel{order:1}
-      h1{font-size:22px}
-      .icon-wrap{font-size:72px}
-    }
   </style>
 </head>
 <body>
-  <main class="card" role="main" aria-labelledby="site-title">
-    <section>
-      <div class="brand">
-        <div class="logo"><img src="/logo.svg" alt="Void Hosting logo"></div>
-        <div>
-          <h1 id="site-title">Void Hosting</h1>
-          <p class="lead">Reliable hosting... temporarily taking a nap 🛠️</p>
-        </div>
-      </div>
+  <div class="wrap">
+    <div class="card" role="main">
+      <div class="cone" aria-hidden="true">
+        <img src="/cone.png" alt="Maintenance cone">
+      </div><div class="content">
+    <h1>We'll be back soon!</h1>
+    <p>This site is currently under maintenance or we are currently down. Our engineers are peering into the void.<br>Check back later or stay connected:</p>
 
-      <div class="center-panel">
-        <div class="icon-wrap"><img src="cone.png"> </img></div>
-        <h2 class="status-title">We are currently down.</h2>
-        <p class="status-desc">Please wait — our engineers are peering into the void. Join our Discord for live updates.</p>
+    <div class="actions" role="group" aria-label="Useful links">
+      <a class="btn" href="https://dsc.gg/voidhodsting"><i class="fa-brands fa-discord"></i> Discord</a>
+      <a class="btn" href="#"><i class="fa-solid fa-check"></i> Vote</a>
+      <a class="btn" href="#"><i class="fa-solid fa-store"></i> Store</a>
+    </div>
+  </div>
+</div>
 
-        <div class="actions">
-          <a class="btn btn-primary" href="https://dsc.gg/voidhosting" target="_blank" rel="noopener noreferrer">
-            <i class="fab fa-discord"></i> Join Discord
-          </a>
-          <button class="btn btn-ghost" onclick="copyInvite()" id="copyBtn">
-            <i class="fas fa-copy"></i> Copy Invite
-          </button>
-        </div>
-
-        <footer class="small">Tip: If the invite doesn't open, copy it and paste into your Discord app.</footer>
-      </div>
-    </section>
-
-    <aside class="right-col">
-      <div class="card-info">
-        <p class="info-title">Estimated progress</p>
-        <div class="progress" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="38">
-          <div class="bar" id="bar"></div>
-        </div>
-        <p style="margin:8px 0 0 0;font-size:13px;color:var(--muted)">Investigating cause • <strong>38%</strong></p>
-      </div>
-
-      <div class="card-info">
-        <p class="info-title">Contact</p>
-        <p style="margin:0;color:var(--muted);font-size:14px">Need urgent help? Reply to the email you received or ping staff on Discord.</p>
-      </div>
-
-      <div class="card-info">
-        <p class="info-title">Advertisement</p>
-        <p style="margin:0;color:var(--muted);font-size:14px">Small hosting credits available when we come back online.</p>
-      </div>
-    </aside>
-  </main>
-
-  <script>
-    function copyInvite(){
-      const invite = 'https://discord.gg/your-invite';
-      navigator.clipboard?.writeText(invite).then(()=>{
-        const btn = document.getElementById('copyBtn');
-        btn.textContent = 'Copied!';
-        setTimeout(()=>btn.innerHTML='<i class="fas fa-copy"></i> Copy Invite',1500);
-      }).catch(()=>{
-        alert('Could not copy — please copy manually: ' + invite);
-      });
-    }
-
-    // animated loader bar
-    (function(){
-      const bar = document.getElementById('bar');
-      let val = 38, dir = 1;
-      setInterval(()=>{
-        val += dir * (Math.random()*2.8);
-        if(val>84) dir = -1;
-        if(val<30) dir = 1;
-        bar.style.width = Math.round(val) + '%';
-      },1200);
-    })();
-  </script>
+  </div>
 </body>
 </html>
