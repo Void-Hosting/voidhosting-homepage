@@ -1,25 +1,27 @@
 <!doctype html>
-
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Void Hosting — Down for Maintenance</title>
+
+  <!-- Fonts & Font Awesome -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
+
   <style>
     :root{
-      --bg1:#0f1724; /* deep navy */
-      --bg2:#0b1020; /* near black */
-      --accent1:#7c3aed; /* violet */
-      --accent2:#06b6d4; /* teal */
+      --bg1:#0f1724;
+      --bg2:#0b1020;
+      --accent1:#7c3aed;
+      --accent2:#06b6d4;
       --muted:#9aa4b2;
     }
     *{box-sizing:border-box}
-    html,body{height:100%}
+    html,body{height:100%;margin:0;padding:0}
     body{
-      margin:0;
       font-family:'Poppins',system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;
       background:radial-gradient(1200px 600px at 10% 10%, rgba(124,58,237,0.08), transparent),
                  radial-gradient(900px 400px at 90% 90%, rgba(6,182,212,0.06), transparent),
@@ -30,173 +32,146 @@
       display:flex;
       align-items:center;
       justify-content:center;
-      padding:40px;
-    }.card{
-  width:100%;
-  max-width:920px;
-  background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-  border:1px solid rgba(255,255,255,0.04);
-  border-radius:20px;
-  padding:48px;
-  box-shadow: 0 8px 30px rgba(2,6,23,0.6);
-  display:grid;
-  grid-template-columns:1fr 420px;
-  gap:40px;
-  align-items:center;
-}
+      padding:20px;
+    }
 
-.brand{
-  display:flex;
-  gap:16px;
-  align-items:center;
-}
-.logo-dot{
-  width:56px;height:56px;border-radius:14px;
-  background:linear-gradient(135deg,var(--accent1),var(--accent2));
-  display:inline-grid;place-items:center;font-weight:700;font-size:20px;color:white;
-  box-shadow:0 6px 22px rgba(7,12,28,0.6), inset 0 -4px 12px rgba(255,255,255,0.06);
-}
-h1{font-size:28px;margin:0;color:#ffffff}
-p.lead{margin-top:8px;color:var(--muted);font-weight:500}
+    .card{
+      width:100%;
+      max-width:920px;
+      background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border:1px solid rgba(255,255,255,0.04);
+      border-radius:20px;
+      padding:32px;
+      box-shadow: 0 8px 30px rgba(2,6,23,0.6);
+      display:grid;
+      grid-template-columns:1fr 400px;
+      gap:40px;
+      align-items:center;
+    }
 
-/* center panel */
-.center-panel{
-  display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:24px;
-  gap:18px;
-}
+    .brand{
+      display:flex;
+      gap:16px;
+      align-items:center;
+    }
+    .logo{
+      width:56px;height:56px;border-radius:14px;overflow:hidden;
+      background:#fff;
+      display:inline-flex;align-items:center;justify-content:center;
+      box-shadow:0 6px 22px rgba(7,12,28,0.6);
+    }
+    .logo img{width:100%;height:100%;object-fit:contain}
 
-/* cone icon */
-.cone-wrap{width:240px;height:240px;display:grid;place-items:center;position:relative}
-.cone-card{
-  width:220px;height:220px;border-radius:20px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-  border:1px solid rgba(255,255,255,0.03);display:grid;place-items:center;transform:translateY(0);transition:transform .35s cubic-bezier(.2,.9,.3,1);
-}
-.cone-wrap:hover .cone-card{transform:translateY(-6px)}
+    h1{font-size:28px;margin:0;color:#ffffff}
+    p.lead{margin-top:8px;color:var(--muted);font-weight:500}
 
-svg.cone{width:120px;height:120px}
-.pulse{
-  position:absolute;inset:auto;left:50%;top:50%;transform:translate(-50%,-50%);
-  width:280px;height:280px;border-radius:50%;opacity:.08;filter:blur(20px);
-  background:radial-gradient(circle at 30% 30%, var(--accent1), transparent 30%), radial-gradient(circle at 70% 70%, var(--accent2), transparent 30%);
-  animation:fade 3.6s infinite ease-in-out;
-}
-@keyframes fade{0%{opacity:.06}50%{opacity:.12}100%{opacity:.06}}
+    .center-panel{text-align:center;padding:24px;display:flex;flex-direction:column;gap:18px}
 
-.status-title{font-size:18px;font-weight:700;margin:0}
-.status-desc{color:var(--muted);margin:0;font-size:14px}
+    .icon-wrap{
+      font-size:96px;
+      color:var(--accent1);
+      text-shadow:0 0 20px rgba(124,58,237,0.4);
+      margin-bottom:12px;
+    }
 
-.actions{display:flex;gap:12px;align-items:center}
-.btn{display:inline-flex;align-items:center;gap:10px;padding:12px 16px;border-radius:12px;border:0;font-weight:600;cursor:pointer;text-decoration:none}
-.btn-primary{background:linear-gradient(90deg,var(--accent1),var(--accent2));color:white;box-shadow:0 8px 20px rgba(6,20,40,0.45)}
-.btn-ghost{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--muted)}
+    .status-title{font-size:20px;font-weight:700;margin:0}
+    .status-desc{color:var(--muted);margin:0;font-size:15px}
 
-.right-col{display:flex;flex-direction:column;gap:18px;padding:8px 12px}
-.card-info{background:rgba(255,255,255,0.01);border-radius:12px;padding:16px;border:1px solid rgba(255,255,255,0.02)}
-.info-title{font-size:13px;color:var(--muted);margin:0 0 8px 0}
-.progress{height:10px;background:rgba(255,255,255,0.02);border-radius:999px;overflow:hidden}
-.bar{height:100%;width:38%;background:linear-gradient(90deg,var(--accent1),var(--accent2));transition:width 600ms ease}
+    .actions{display:flex;flex-wrap:wrap;gap:12px;justify-content:center}
+    .btn{
+      display:inline-flex;align-items:center;gap:10px;
+      padding:12px 18px;border-radius:12px;font-weight:600;
+      text-decoration:none;cursor:pointer;font-size:14px;
+    }
+    .btn-primary{
+      background:linear-gradient(90deg,var(--accent1),var(--accent2));
+      color:white;box-shadow:0 8px 20px rgba(6,20,40,0.45)
+    }
+    .btn-ghost{
+      background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--muted)
+    }
 
-footer.small{font-size:12px;color:var(--muted);margin-top:8px}
+    .right-col{display:flex;flex-direction:column;gap:18px}
+    .card-info{background:rgba(255,255,255,0.01);border-radius:12px;padding:16px;border:1px solid rgba(255,255,255,0.02)}
+    .info-title{font-size:13px;color:var(--muted);margin:0 0 8px 0}
+    .progress{height:10px;background:rgba(255,255,255,0.02);border-radius:999px;overflow:hidden}
+    .bar{height:100%;width:38%;background:linear-gradient(90deg,var(--accent1),var(--accent2));transition:width 600ms ease}
+    footer.small{font-size:12px;color:var(--muted);margin-top:8px;text-align:center}
 
-/* responsive */
-@media (max-width:880px){
-  .card{grid-template-columns:1fr;max-width:760px}
-  .cone-wrap{width:200px;height:200px}
-}
-
+    /* Responsive */
+    @media(max-width:880px){
+      body{align-items:flex-start;padding:16px}
+      .card{grid-template-columns:1fr;max-width:100%}
+      .right-col{order:2}
+      .center-panel{order:1}
+      h1{font-size:22px}
+      .icon-wrap{font-size:72px}
+    }
   </style>
 </head>
 <body>
   <main class="card" role="main" aria-labelledby="site-title">
     <section>
       <div class="brand">
-        <div class="logo-dot">V</div>
+        <div class="logo"><img src="/logo.svg" alt="Void Hosting logo"></div>
         <div>
           <h1 id="site-title">Void Hosting</h1>
           <p class="lead">Reliable hosting... temporarily taking a nap 🛠️</p>
         </div>
-      </div><div style="height:22px"></div>
-
-  <div class="center-panel" aria-live="polite">
-    <div class="cone-wrap" aria-hidden="true">
-      <div class="pulse" aria-hidden="true"></div>
-      <div class="cone-card">
-        <!-- stylized cone / traffic cone SVG -->
-        <svg class="cone" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <defs>
-            <linearGradient id="g1" x1="0" x2="1">
-              <stop offset="0" stop-color="#ffb86b"/>
-              <stop offset="1" stop-color="#ff6b6b"/>
-            </linearGradient>
-            <linearGradient id="g2" x1="0" x2="1">
-              <stop offset="0" stop-color="#ffffff" stop-opacity="0.9"/>
-              <stop offset="1" stop-color="#ffffff" stop-opacity="0.6"/>
-            </linearGradient>
-          </defs>
-          <g fill="none" fill-rule="evenodd">
-            <path d="M8 52h48L34 10H30z" fill="url(#g1)" />
-            <path d="M20 40h24v6H20z" fill="url(#g2)" opacity="0.95"/>
-            <path d="M24 28h16v6H24z" fill="url(#g2)" opacity="0.95"/>
-            <circle cx="32" cy="52" r="6" fill="#071226" opacity="0.6"/>
-          </g>
-        </svg>
       </div>
-    </div>
 
-    <h2 class="status-title">We are currently down.</h2>
-    <p class="status-desc">Please wait — our engineers are peering into the void. Join our Discord for live updates.</p>
+      <div class="center-panel">
+        <div class="icon-wrap"><i class="fas fa-traffic-cone"></i></div>
+        <h2 class="status-title">We are currently down.</h2>
+        <p class="status-desc">Please wait — our engineers are peering into the void. Join our Discord for live updates.</p>
 
-    <div class="actions">
-      <a class="btn btn-primary" href="https://dsc.gg/voidhosting" target="_blank" rel="noopener noreferrer" id="discordBtn">
-        <!-- simple discord SVG icon -->
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <path d="M7.5 15.5c.9 0 1.6-.8 1.6-1.8s-.7-1.8-1.6-1.8-1.6.8-1.6 1.8.7 1.8 1.6 1.8zm9 0c.9 0 1.6-.8 1.6-1.8s-.7-1.8-1.6-1.8-1.6.8-1.6 1.8.7 1.8 1.6 1.8z" fill="currentColor" opacity=".95" />
-          <path d="M20 4l-2.2 2.6C14.8 6 12.5 5.5 9.6 6 6.8 6.5 4.7 8 3 9.2 3 13 6.5 16 6.5 16c1.4.9 2.8 1.2 4.1 1.3.8.1 1.6.2 2.4.2s1.6 0 2.4-.2c1.3-.1 2.7-.4 4.1-1.3 0 0 3.5-3 3.5-6.8 0-1.4-.6-2.5-1.4-3.3L20 4z" fill="currentColor" opacity=".15"/>
-        </svg>
-        Join Discord
-      </a>
+        <div class="actions">
+          <a class="btn btn-primary" href="https://dsc.gg/voidhosting" target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-discord"></i> Join Discord
+          </a>
+          <button class="btn btn-ghost" onclick="copyInvite()" id="copyBtn">
+            <i class="fas fa-copy"></i> Copy Invite
+          </button>
+        </div>
 
-      <button class="btn btn-ghost" onclick="copyInvite()" id="copyBtn">Copy Invite</button>
-    </div>
+        <footer class="small">Tip: If the invite doesn't open, copy it and paste into your Discord app.</footer>
+      </div>
+    </section>
 
-    <footer class="small">Tip: If the invite doesn't open, copy it and paste into your Discord app.</footer>
-  </div>
-</section>
+    <aside class="right-col">
+      <div class="card-info">
+        <p class="info-title">Estimated progress</p>
+        <div class="progress" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="38">
+          <div class="bar" id="bar"></div>
+        </div>
+        <p style="margin:8px 0 0 0;font-size:13px;color:var(--muted)">Investigating cause • <strong>38%</strong></p>
+      </div>
 
-<aside class="right-col" aria-hidden="false">
-  <div class="card-info">
-    <p class="info-title">Estimated progress</p>
-    <div class="progress" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="38">
-      <div class="bar" id="bar"></div>
-    </div>
-    <p style="margin:8px 0 0 0;font-size:13px;color:var(--muted)">Investigating cause • <strong>38%</strong></p>
-  </div>
+      <div class="card-info">
+        <p class="info-title">Contact</p>
+        <p style="margin:0;color:var(--muted);font-size:14px">Need urgent help? Reply to the email you received or ping staff on Discord.</p>
+      </div>
 
-  <div class="card-info">
-    <p class="info-title">Contact</p>
-    <p style="margin:0;color:var(--muted);font-size:14px">Need urgent help? Reply to the email you received or ping staff on Discord.</p>
-  </div>
+      <div class="card-info">
+        <p class="info-title">Advertisement</p>
+        <p style="margin:0;color:var(--muted);font-size:14px">Small hosting credits available when we come back online.</p>
+      </div>
+    </aside>
+  </main>
 
-  <div class="card-info">
-    <p class="info-title">Advertisement</p>
-    <p style="margin:0;color:var(--muted);font-size:14px">Small hosting credits available when we come back online.</p>
-  </div>
-
-</aside>
-
-  </main>  <script>
+  <script>
     function copyInvite(){
       const invite = 'https://discord.gg/your-invite';
       navigator.clipboard?.writeText(invite).then(()=>{
         const btn = document.getElementById('copyBtn');
         btn.textContent = 'Copied!';
-        setTimeout(()=>btn.textContent = 'Copy Invite',1500);
+        setTimeout(()=>btn.innerHTML='<i class="fas fa-copy"></i> Copy Invite',1500);
       }).catch(()=>{
         alert('Could not copy — please copy manually: ' + invite);
       });
     }
 
-    // small friendly little loader animation for the progress bar
+    // animated loader bar
     (function(){
       const bar = document.getElementById('bar');
       let val = 38, dir = 1;
@@ -207,5 +182,6 @@ footer.small{font-size:12px;color:var(--muted);margin-top:8px}
         bar.style.width = Math.round(val) + '%';
       },1200);
     })();
-  </script></body>
+  </script>
+</body>
 </html>
